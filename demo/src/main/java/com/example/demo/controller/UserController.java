@@ -6,6 +6,7 @@ import com.example.demo.entity.User;
 import com.example.demo.entity.UserRole;
 import com.example.demo.helper.UserFoundException;
 import com.example.demo.helper.UserNotFoundException;
+import com.example.demo.repository.UserRepository;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,6 +30,9 @@ public class UserController {
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
+//    @Autowired
+//    private UserRepository userRepository;
+
     //creating user
 
 
@@ -36,7 +40,7 @@ public class UserController {
     public User createUser(@RequestBody User user) throws Exception {
 
 
-        user.setProfile("default.png");
+//        user.setProfile("default.png");
 
         //encoding password with bcryptpasswordencoder
 
@@ -69,8 +73,9 @@ public class UserController {
     }
 
     //get all user
-    @GetMapping
-    public ResponseEntity<?> getUser(){return ResponseEntity.ok(this.userService.getUser());}
+    @GetMapping("/")
+    public ResponseEntity<?> getUser(){
+        return ResponseEntity.ok(this.userService.getUser());}
 
     //delete the user by id
     @DeleteMapping("/{userId}")
