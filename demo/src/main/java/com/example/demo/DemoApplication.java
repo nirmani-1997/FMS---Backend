@@ -5,6 +5,7 @@ import com.example.demo.entity.User;
 import com.example.demo.entity.UserRole;
 import com.example.demo.helper.UserFoundException;
 import com.example.demo.service.UserService;
+import com.example.demo.service.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -22,6 +23,7 @@ public class DemoApplication implements CommandLineRunner{
 
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
+
 
 	public static void main(String[] args) {
 

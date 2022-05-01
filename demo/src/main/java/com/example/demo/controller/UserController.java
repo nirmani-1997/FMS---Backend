@@ -5,8 +5,6 @@ import com.example.demo.entity.Role;
 import com.example.demo.entity.User;
 import com.example.demo.entity.UserRole;
 import com.example.demo.helper.UserFoundException;
-import com.example.demo.helper.UserNotFoundException;
-import com.example.demo.repository.UserRepository;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -78,9 +76,26 @@ public class UserController {
         return ResponseEntity.ok(this.userService.getUser());}
 
     //delete the user by id
-    @DeleteMapping("/{userId}")
-    public void deleteUser(@PathVariable("userId") Long userId){
-        this.userService.deleteUser(userId);
+    @DeleteMapping("/{id}")
+    public void deleteUser(@PathVariable("id") Long id){
+        this.userService.deleteUser(id);
+    }
+
+
+    //update user
+//    @PutMapping("/{id}")
+////    public User updateUser (@RequestBody User user) {
+////        return this.userService.updateUser(user);
+////    }
+//    public User updateUser(@PathVariable Long id, @RequestBody User user){
+//
+//      return this.userService.updateUser();
+//    }
+
+    //update vehicle
+    @PutMapping("/")
+    public User updateUser(@RequestBody User user){
+        return this.userService.updateUser(user);
     }
 
 
@@ -93,6 +108,8 @@ public class UserController {
     public ResponseEntity<?> exceptionHandler(UserFoundException ex) {
         return new ResponseEntity<>(ex, HttpStatus.BAD_REQUEST);
     }
+
+
 
 
 //    update api

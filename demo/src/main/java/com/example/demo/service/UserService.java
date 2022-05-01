@@ -2,6 +2,7 @@ package com.example.demo.service;
 
 import com.example.demo.entity.User;
 import com.example.demo.entity.UserRole;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
@@ -19,5 +20,9 @@ public interface UserService {
 
 
     //delete user by id
-    void deleteUser(Long userId);
+    public void deleteUser(Long userId);
+
+    //update user
+    public User updateUser(User user);
+//    ResponseEntity updateUser(User user) throws InterruptedException;
 }

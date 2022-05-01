@@ -56,12 +56,19 @@ public class UserServiceImpl implements UserService {
         return new LinkedHashSet<>(this.userRepository.findAll());
     }
 
+
+
     @Override
     public void deleteUser(Long userId) {
         this.userRepository.deleteById(userId);
     }
 
 
+    //update user
+    @Override
+    public User updateUser(User user) {
+        return this.userRepository.save(user);
+    }
 
 
 }
